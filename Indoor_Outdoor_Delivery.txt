@@ -1,0 +1,29 @@
+{email}
+
+Schedule Your Living Spaces Order! {order_number}
+
+Hello {first_last_name},
+
+I am reaching out regarding your open Living Spaces order. Your item(s) are in and ready to be scheduled for delivery. If you would like assistance scheduling your order, please “REPLY ALL” to this email, so we can further assist, or you can schedule online on our website.
+
+Below are the available upcoming delivery windows for your Indoor/outdoor drop-off delivery which include:
+
+-Placement of item(s) inside or outside the front door of your residence
+
+-No assembly included
+
+-No removal of boxes and debris
+
+
+
+[insert dates here]
+
+
+
+Please Note: 
+
+*An Adult 18+ is required to receive delivery for Indoor Drop Off. If no authorized adult is present during your scheduled delivery window for Indoor Drop Off, your delivery may automatically be changed to Outdoor Drop Off by Living Spaces (or if Living Spaces does not change your delivery to Outdoor Drop Off, you will be charged a delivery fee to reschedule).
+
+Please keep in mind windows do fill up quickly, so it is important to respond at your earliest convenience.
+
+Kind regards,

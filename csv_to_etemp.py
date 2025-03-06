@@ -1,81 +1,38 @@
 import pandas as pd
-from pathlib import Path
 
+def generate_email_template(row, template_path):
+    """Generates an email template from a row of data and a template file."""
 
+    with open(template_path, 'r') as f:
+        template = f.read()
 
-p = Path('/Users/david/desktop')
+    email = row['Column 5']
+    sales_order_number = row['Column 2']
+    full_name = row['Column 3']
 
-q = p / 'data.xlsx'
+    template = template.format(
+        email=email,
+        sales_order_number=sales_order_number,
+        full_name=full_name
+    )
 
-df = pd.read_excel(q)
+    return template
 
-print(df['Delivery Type?'])
+def process_excel_and_generate_txt(excel_file, template_path, output_txt):
+    """Processes an Excel file, generates email templates, and saves them to a txt file."""
 
-row_data = df['Delivery Type?'] 
+    df = pd.read_excel(excel_file)
 
-def deliveries_types():
-    for i in row_data:
-        outdoor_deliveries = 0
-        if i == 'Outdoor':
-            outdoor_deliveries += 1
-    return outdoor_deliveries
+    with open(output_txt, 'w') as f:
+        for index, row in df.iterrows():
+            if row['Column 11'] == 'NW' and 'DO NOT EMAIL' not in str(row['Column 8']).strip():
+                email_template = generate_email_template(row, template_path)
+                f.write(email_template)
+                f.write('\n\n')  # Add two line breaks between emails
 
-print(deliveries_types())
+# Example usage
+excel_file = 'test_data.xlsx'  # Replace with your Excel file path
+template_path = 'nationwide_delivery.txt' # Replace with your template file path
+output_txt = 'email_templates.txt' # Replace with your desired output txt file path
 
-        
-
-
-#practice with pandas - nba
-
-'''
-
-data = {'Name': ['Kobe', 'Antetekoumpo', 'LeBron'], 'Championships': [5, 1, 4]}
-df_people = pd.DataFrame(data, index=['first', 'second', 'third'])
-
-print(df_people.to_string(justify='right', float_format='${:,.2f}'.format))
-
-
-## most common and efficient way to convert the data into an array (numpy array)
-new_array = df_people.values
-
-#print(new_array)
-
-
-##accessing the row "index" objects - will return an integer unless you create the index using the index in the dataframe construction
-
-rank_name = df_people.index
-#print(row_index)
-
-##accessing the column "index" objects
-
-col_index = df_people.columns
-#print(col_index)
-
-## in order to address "index objects" aka column and row labels, we will use pandas index objects
-
-
-# i want to print every name and age in the dataframe i created
-
-
-'''
-
-'''for position, (player_name, player_championships) in enumerate(new_array):
-    custom_index_name = row_index[position]
-    print(f"NBA GOATS in order: {custom_index_name}===== Name: {player_name} ==== Championships: {player_championships}")
-'''
-'''
-rank_max = max(len(label) for label in rank_name)
-player_name_max = max(len(player[0]) for player in new_array)
-championships_max = max(len(str(player[1])) for player in new_array)
-
-for position, (player_name, player_championships) in enumerate(new_array):
-    print(f"NBA GOATS in order: {rank_name[position]:{rank_max}}===== Name: {player_name:{player_name_max}} ==== Championships: {player_championships:{championships_max}}")
-'''
-
-
-'''# Accessing by label (Index) - should print Noelia
-print(df.loc['A'])
-# Accessing by position - should print Noelia
-print(df.iloc[0])
-
-'''
+process_excel_and_generate_txt(excel_file, template_path, output_txt)

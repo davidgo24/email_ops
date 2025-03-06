@@ -1,0 +1,25 @@
+{email}
+
+Schedule Your Living Spaces Order! {order_number}
+
+Hello {first_last_name}, 
+
+I am reaching out regarding your open Living Spaces order. Your item(s) are in and ready to be scheduled for delivery. 
+
+If you would like assistance scheduling your order, please REPLY ALL to this email, so we can further assist, or you can schedule online on our website. 
+
+Below are the available upcoming delivery windows for your full-service delivery which include:
+
+-Placement of item(s) in room(s) of choice * Does not include removal or moving of existing furniture*
+-Assembly of all items 
+-Removal of all boxes and debris 
+
+
+                         [Insert Delivery Windows Here] 
+
+
+
+Please keep in mind windows do fill up quickly, so it is important to respond at your earliest convenience.
+
+Kind regards,
+
